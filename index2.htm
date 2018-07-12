@@ -1,0 +1,2474 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Cossacks II - Units by Type</title>
+<link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link href="script/style.css" rel="stylesheet" type="text/css">
+<link href="script/overlay-apple.css" rel="stylesheet" type="text/css">
+
+<script src="script/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="script/jquery-ui.min.js" type="text/javascript"></script>
+<script src="script/jquery.tools-1.2.7-core.min.js" type="text/javascript"></script>
+
+<script src="script/scripts.js" type="text/javascript"></script>
+<script src="script/preview.js" type="text/javascript"></script>
+<script src="script/css_browser_selector.js" type="text/javascript"></script>
+<script src="script/calculator.js" type="text/javascript"></script>
+
+</head>
+
+<body onload="location.hash = 'type';">
+
+<div id="containment-wrapper">
+
+  <div class="toggle_nav  ui-widget-content" id="draggable2">
+     <div class="nav">
+       <img src="images/b_menu2.gif" style="float: left;">
+       <img src="images/b_menu2.gif" style="float: right;">
+       Menu<br><strong>On</strong>|<span>Off</span>
+     </div>
+     <div id="move"></div>
+  </div>
+
+  <div class="toggle_help  ui-widget-content" id="draggable2">
+       <div class="help">
+         <img src="images/b_help.gif" style="float: left;">
+         <img src="images/b_help.gif" style="float: right;">
+         Help<br><strong>On</strong>|<span>Off</span>
+       </div>
+       <div id="move"></div>
+  </div>
+  
+<div id="help_container">
+<div id="closehelp"><img src="images/t_close.png"></div>
+<ul>
+<li><b>Life</b> : Total life points for the unit.
+<li><b>Melee</b> : Damage infliged by one melee hit. Does not include formation, standard bearer, or XP bonuses.
+<li><b>Ranged</b> : Damage infliged by one fire shot (reduced with distance).
+<li><b>Morale</b> : Starting morale value with all morale bonuses:
+     <ul>
+     <li>a full infantry squad (+25) with officer, drummer and standard bearer (+30)
+     <li>a full cavalry squad (+9) with mounted standard bearer (+10),
+     <li>a full specialist squad (+3).
+     <li>A squad will start to flee with a moral value of 30.    
+     </ul>
+<li><b>Training</b> : Time required to create one unit ; in gameframes [divide by the game refresh rate (50 or 60) for time in seconds].
+<li><b>Coal</b> : Coal consumption for one shot.
+<li><b>Reload</b> : Time required to reload after one weapon shot ; in gameframes [divide by the game refresh rate (50 or 60) for time in seconds].
+</ul>
+<a onclick="ScrollBottom()" style="cursor:pointer;">[Next &#62;]</a><br>
+- All values are based on Cossacks II Battle For Europe 1.3.<br>
+- Click on a unit flag to display the whole unit class for this nation.<br>
+- Click on the book near a unit name to display its historical info.<br>
+- Hover a unit icon to display its whole uniform and game code.<br>
+- Keyboard numpad can be used for Calculator, C to clear, O to Off.<br>
+- All floating buttons are draggable anywhere in the page.<br>
+- Click on any "M" icon to get back to the sorting option.<br>
+<a onclick="ScrollTop()" style="cursor:pointer;">[&#60; Back]</a>
+</div>
+
+<div class="wrap_toc"> 
+  <div class="toggle_toc  ui-widget-content" id="draggable2">
+       <div class="toc">
+         <img src="images/b_unit.gif" style="float: left;">
+         <img src="images/b_unit.gif" style="float: right;">
+         Units<br><strong>On</strong>|<span>Off</span>
+       </div>
+       <div id="move"></div>
+  </div>
+  
+			<div class="toc_container  ui-widget-content" id="draggable2">
+			<div id="move_toc"></div>	
+			<div class="type">
+<div class="mtype"><img src="images/b_subunit.gif"><strong>Infantry</strong></div>
+      <a href="#troop"><div class="subtype">Troops</div></a>
+			<a href="#line"><div class="subtype">Line Infantry</div></a>
+			<a href="#light"><div class="subtype">Light Infantry</div></a>
+			<a href="#grena"><div class="subtype">Grenadier</div></a>
+			<a href="#chass"><div class="subtype">Chasseur</div></a>
+			<a href="#engin"><div class="subtype">Engineer</div></a>
+<div class="mtype"><img src="images/b_subunit.gif"><strong>Light Cavalry</strong></div>
+      <a href="#mchass"><div class="subtype">Mounted Chasseur</div></a>
+      <a href="#muhl"><div class="subtype">Mounted Uhlan</div></a>
+      <a href="#mhus"><div class="subtype">Mounted Hussar</div></a>
+<div class="mtype"><img src="images/b_subunit.gif"><strong>Heavy Cavalry</strong></div>
+      <a href="#mdra"><div class="subtype">Mounted Dragoon</div></a>
+      <a href="#mcui"><div class="subtype">Mounted Cuirassier</div></a>
+<div class="mtype"><img src="images/b_subunit.gif"><strong>Unique Units</strong></div>
+      <a href="#ulcav"><div class="subtype">Unique Light Cav.</div></a>
+      <a href="#uhcav"><div class="subtype">Unique Heavy Cav.</div></a>
+      </div>
+			</div>
+</div>
+			
+  <div class="reset  ui-widget-content" id="draggable2" onclick="ClearPos2()">
+    <div class="resetok">
+       <img src="images/b_reset.gif" style="float: left;">
+       <img src="images/b_reset.gif" style="float: right;">
+       Reset Position
+    </div>
+  <div id="move"></div>
+  </div>
+
+<div class="wrap_calc">
+  <div class="toggle_calc  ui-widget-content" id="draggable2">
+    <div class="calc">
+       <img src="images/b_calc.gif" style="float: left;">
+       <img src="images/b_calc.gif" style="float: right;">
+       Calc<br><strong>On</strong>|<span>Off</span>
+    </div>
+    <div id="move"></div>
+  </div>
+  
+  <div class="calc_container  ui-widget-content" id="draggable2">
+   <div class="shunt">
+       <button id="closecalc">Off</button>
+            <br>
+       <button onclick="getElementById('result').innerHTML=reset_this_up();" id="bclear">C</button>
+   </div>
+   <div  class="result">
+      <div id="result" class="result_text"></div>
+   </div>
+   <div  class="number">
+      <button onclick="getElementById('result').innerHTML=some_math(1)" id="b1">1</button>
+      <button onclick="getElementById('result').innerHTML=some_math(2)" id="b2">2</button>
+      <button onclick="getElementById('result').innerHTML=some_math(3);" id="b3">3</button>
+            <br>
+      <button onclick="getElementById('result').innerHTML=some_math(4);" id="b4">4</button>
+      <button onclick="getElementById('result').innerHTML=some_math(5);" id="b5">5</button>
+      <button onclick="getElementById('result').innerHTML=some_math(6);" id="b6">6</button>
+            <br>
+      <button onclick="getElementById('result').innerHTML=some_math(7);" id="b7">7</button>
+      <button onclick="getElementById('result').innerHTML=some_math(8);" id="b8">8</button>
+      <button onclick="getElementById('result').innerHTML=some_math(9);" id="b9">9</button>
+            <br>
+      <button onclick="getElementById('result').innerHTML=some_math(0);" id="b0">0</button>
+      <button onclick="getElementById('result').innerHTML=point_pressed();" id="bcom">.</button>
+			<button onclick="getElementById('result').innerHTML=equal();" id="bequal">=</button>
+   </div>
+        
+   <div class="operator">
+	    <button onclick="getElementById('result').innerHTML=some_math_operations('+');" id="bplu">+</button>
+      <button onclick="getElementById('result').innerHTML=some_math_operations('-');" id="bmin">&ndash;</button>
+            <br>
+      <button onclick="getElementById('result').innerHTML=some_math_operations('*');" id="bmul">*</button>
+      <button onclick="getElementById('result').innerHTML=some_math_operations('/');" id="bdiv">/</button>
+   </div>
+   <div id="move_calc"></div>
+  </div>
+</div>
+
+
+<div class="top  ui-widget-content" id="draggable2">
+  <div class="tophov">
+      <img src="images/b_top.gif" style="float: left;">
+      <img src="images/b_top.gif" style="float: right;">
+       Back to<br>Top
+  </div>
+  <div id="move"></div>
+</div>
+
+<div class="loadpage">Loading
+     <div class="loading" style="float: right;"></div>
+</div>
+
+
+<div id="menu"><img src="images/b_header.png" width="570" height="90" usemap="#menu"></div>
+
+<map name="menu">
+  <area shape="rect" coords="57,29,271,61" href="index.htm" class="info" title="Sort Units by Nation">
+  <area shape="rect" coords="300,29,514,61" href="#" class="info" title="Sort Units by Type">
+</map>
+
+<table width="1024" cellpadding="0" border="0" align="center" style="margin-bottom: 221px;">
+<tbody>
+<tr id="norm">
+<td width="26" height="26" style="background: url(images/frame_coin.jpg);"></td>
+<td height="26" style="background: url(images/frame_top.jpg);"></td>
+<td width="26" height="26" style="background: url(images/frame_coin.jpg);"></td>
+</tr>
+<tr id="norm">
+<td width="26" style="background: url(images/frame_left.jpg);"></td>
+
+<td background="images/fondbg2.jpg">
+
+<div align="justify">
+<!-- Debut cadre central -->
+
+<div class="framebg"><img src="images/framebg2.jpg"></div>
+<div class="title"><img src="images/title.jpg"></div>
+<div class="subtitle"><img src="images/subtitle2.gif"></div>
+</div>
+
+<div style="margin-left: 2.5em; margin-top: 31px;" align="justify">
+
+<table class="squad">
+<tbody>
+<tr id="norm">
+<td><img src="images/c_unit.png"></td>
+<td><img src="images/b_unit_inf.gif"></td>
+<td><img src="images/c_unit2.png"></td>
+</tr>
+</tbody>
+</table>
+
+<br>
+
+<table id="troop" class="squad">
+<tbody>
+<tr id="norm">
+<td><a href="#menu"><img src="images/b_menu.gif" class="info" title="Menu"></a></td>
+<td><img src="images/b_flag.gif"></td>
+<td>Troops - Squad 120 units</td>
+</tr>
+</tbody>
+</table>
+
+<table class="unit unit2">
+<tbody>
+<TR id="norm"><TH class="units">Units</TH><TH class="name">Name</TH><TH class="nation">Nation</TH><TH class="life">Life</TH><TH class="melee">Melee</TH><TH class="ranged">Ranged</TH><TH class="morale">Morale</TH><TH class="training">Training</TH><TH class="coal">Coal</TH><TH class="reload">Reload</TH><TH class="cost">Cost</TH></TR>
+
+<tr><td>
+<a href="images/units/uni_fra01.gif" class="preview">
+<img src="images/units/uni_fra01.gif" class="icon" style="background-image: url(images/units/uni_fra01.gif)" title="FRNFUZNG"></a></td>
+<td>
+<a href="data/fra/frnfuzng.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+National Guard</td>
+<td><a href="index.htm#fra_inf" class="info" title="Check French Infantry">
+<img src="images/d_fra.gif"></a></td>
+<!-- Life --><td>100</td>
+<!-- Melee --><td>5</td>
+<!-- Ranged --><td>100</td>
+<!-- Morale --><td>95</td>
+<!-- Training --><td>10</td>
+<!-- Coal --><td>8</td>
+<!-- Reload --><td>800</td>
+<td id="cost"><img src="images/r_food.jpg">5 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_aut01.gif" class="preview">
+<img src="images/units/uni_aut01.gif" class="icon" style="background-image: url(images/units/uni_aut01.gif)" title="AUSLAN"></a></td>
+<td>
+<a href="data/aut/auslan.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Landwer</td>
+<td><a href="index.htm#aut_inf" class="info" title="Check Austrian Infantry">
+<img src="images/d_aut.gif"></a></td>
+<!-- Life --><td>100</td>
+<!-- Melee --><td>5</td>
+<!-- Ranged --><td>100</td>
+<!-- Morale --><td>95</td>
+<!-- Training --><td>10</td>
+<!-- Coal --><td>8</td>
+<!-- Reload --><td>800</td>
+<td id="cost"><img src="images/r_food.jpg">5 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rus01.gif" class="preview">
+<img src="images/units/uni_rus01.gif" class="icon" style="background-image: url(images/units/uni_rus01.gif)" title="RUSPAR"></a></td>
+<td>
+<a href="data/rus/ruspar.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Home Guard</td>
+<td><a href="index.htm#rus_inf" class="info" title="Check Russian Infantry">
+<img src="images/d_rus.gif"></a></td>
+<td>100</td>
+<td>8</td>
+<td>-</td>
+<td>95</td>
+<td>10</td>
+<td>-</td>
+<td>-</td>
+<td id="cost"><img src="images/r_food.jpg">10
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pru01.gif" class="preview">
+<img src="images/units/uni_pru01.gif" class="icon" style="background-image: url(images/units/uni_pru01.gif)" title="PRUMUS"></a></td>
+<td>
+<a href="data/pru/prumus.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Musketeer</td>
+<td><a href="index.htm#pru_inf" class="info" title="Check Prussian Infantry">
+<img src="images/d_pru.gif"></a></td>
+<td>100</td>
+<td>7</td>
+<td>100</td>
+<td>95</td>
+<td>15</td>
+<td>6</td>
+<td>560</td>
+<td id="cost"><img src="images/r_food.jpg">15 <img src="images/r_iron.jpg">4
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_egy01.gif" class="preview">
+<img src="images/units/uni_egy01.gif" class="icon" style="background-image: url(images/units/uni_egy01.gif)" title="TURMEC"></a></td>
+<td>
+<a href="data/egy/turmec.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Warrior with Yataghan</td>
+<td><a href="index.htm#egy_inf" class="info" title="Check Egyptian Infantry">
+<img src="images/d_egy.gif"></a></td>
+<td>100</td>
+<td>4</td>
+<td>-</td>
+<td>120</td>
+<td>15</td>
+<td>-</td>
+<td>-</td>
+<td id="cost"><img src="images/r_food.jpg">5 <img src="images/r_iron.jpg">7
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_spa01.gif" class="preview">
+<img src="images/units/uni_spa01.gif" class="icon" style="background-image: url(images/units/uni_spa01.gif)" title="SPNPARNEW"></a></td>
+<td>
+<a href="data/spa/spnparnew.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Guerrilla</td>
+<td><a href="index.htm#spa_inf" class="info" title="Check Spanish Infantry">
+<img src="images/d_spa.gif"></a></td>
+<td>100</td>
+<td>5</td>
+<td>100</td>
+<td>70</td>
+<td>10</td>
+<td>4</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">7 <img src="images/r_iron.jpg">3
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rhi01.gif" class="preview">
+<img src="images/units/uni_rhi01.gif" class="icon" style="background-image: url(images/units/uni_rhi01.gif)" title="VESMUS"></a></td>
+<td>
+<a href="data/rhi/vesmus.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Musketeer</td>
+<td><a href="index.htm#rhi_inf" class="info" title="Check Rhenish Infantry">
+<img src="images/d_rhi.gif"></a></td>
+<td>100</td>
+<td>7</td>
+<td>100</td>
+<td>95</td>
+<td>15</td>
+<td>6</td>
+<td>560</td>
+<td id="cost"><img src="images/r_food.jpg">15 <img src="images/r_iron.jpg">4
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#gbr_inf" class="info" title="Check British Infantry">
+<img src="images/d_gbr.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#pol_inf" class="info" title="Check Polish Infantry">
+<img src="images/d_pol.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+</tbody>
+</table>
+
+
+<table id="line" class="squad">
+<tbody>
+<tr id="norm">
+<td><a href="#menu"><img src="images/b_menu.gif" class="info" title="Menu"></a></td>
+<td><img src="images/b_flag.gif"></td>
+<td>Line Infantry - Squad 120 units</td>
+</tr>
+</tbody>
+</table>
+
+<table class="unit unit2">
+<tbody>
+<TR id="norm"><TH class="units">Units</TH><TH class="name">Name</TH><TH class="nation">Nation</TH><TH class="life">Life</TH><TH class="melee">Melee</TH><TH class="ranged">Ranged</TH><TH class="morale">Morale</TH><TH class="training">Training</TH><TH class="coal">Coal</TH><TH class="reload">Reload</TH><TH class="cost">Cost</TH></TR>
+
+<tr><td>
+<a href="images/units/uni_fra02.gif" class="preview">
+<img src="images/units/uni_fra02.gif" class="icon" style="background-image: url(images/units/uni_fra02.gif)" title="FRNFUZ"></a></td>
+<td>
+<a href="data/fra/frnfuz.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Fusilier</td>
+<td><a href="index.htm#fra_inf" class="info" title="Check French Infantry">
+<img src="images/d_fra.gif"></a></td>
+<!-- Life --><td>100</td>
+<!-- Melee --><td>12</td>
+<!-- Ranged --><td>100</td>
+<!-- Morale --><td>95</td>
+<!-- Training --><td>15</td>
+<!-- Coal --><td>5</td>
+<!-- Reload --><td>800</td>
+<td id="cost"><img src="images/r_food.jpg">20 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_aut02.gif" class="preview">
+<img src="images/units/uni_aut02.gif" class="icon" style="background-image: url(images/units/uni_aut02.gif)" title="AUSMUS"></a></td>
+<td>
+<a href="data/aut/ausmus.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Fusilier</td>
+<td><a href="index.htm#aut_inf" class="info" title="Check Austrian Infantry">
+<img src="images/d_aut.gif"></a></td>
+<td>100</td>
+<td>12</td>
+<td>100</td>
+<td>95</td>
+<td>15</td>
+<td>5</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">20 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rus02.gif" class="preview">
+<img src="images/units/uni_rus02.gif" class="icon" style="background-image: url(images/units/uni_rus02.gif)" title="RUSMUS"></a></td>
+<td>
+<a href="data/rus/rusmus.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Musketeer</td>
+<td><a href="index.htm#rus_inf" class="info" title="Check Russian Infantry">
+<img src="images/d_rus.gif"></a></td>
+<td>100</td>
+<td>7</td>
+<td>100</td>
+<td>95</td>
+<td>15</td>
+<td>5</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">20 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_gbr02.gif" class="preview">
+<img src="images/units/uni_gbr02.gif" class="icon" style="background-image: url(images/units/uni_gbr02.gif)" title="ENGMUS"></a></td>
+<td>
+<a href="data/gbr/engmus.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Musketeer</td>
+<td><a href="index.htm#gbr_inf" class="info" title="Check British Infantry">
+<img src="images/d_gbr.gif"></a></td>
+<td>100</td>
+<td>10</td>
+<td>100</td>
+<td>95</td>
+<td>10</td>
+<td>12</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">20 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_egy02.gif" class="preview">
+<img src="images/units/uni_egy02.gif" class="icon" style="background-image: url(images/units/uni_egy02.gif)" title="EGPMUS"></a></td>
+<td>
+<a href="data/egy/egpmus.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Janissary</td>
+<td><a href="index.htm#egy_inf" class="info" title="Check Egyptian Infantry">
+<img src="images/d_egy.gif"></a></td>
+<td>100</td>
+<td>5</td>
+<td>130</td>
+<td>100</td>
+<td>20</td>
+<td>10</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">20 <img src="images/r_iron.jpg">3
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pol02.gif" class="preview">
+<img src="images/units/uni_pol02.gif" class="icon" style="background-image: url(images/units/uni_pol02.gif)" title="POLFUZ"></a></td>
+<td>
+<a href="data/pol/polfuz.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Fusilier</td>
+<td><a href="index.htm#pol_inf" class="info" title="Check Polish Infantry">
+<img src="images/d_pol.gif"></a></td>
+<td>100</td>
+<td>10</td>
+<td>100</td>
+<td>105</td>
+<td>15</td>
+<td>5</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">20 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_spa02.gif" class="preview">
+<img src="images/units/uni_spa02.gif" class="icon" style="background-image: url(images/units/uni_spa02.gif)" title="SPNMUS"></a></td>
+<td>
+<a href="data/spa/spnmus.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Musketeer</td>
+<td><a href="index.htm#spa_inf" class="info" title="Check Spanish Infantry">
+<img src="images/d_spa.gif"></a></td>
+<td>100</td>
+<td>12</td>
+<td>100</td>
+<td>95</td>
+<td>15</td>
+<td>5</td>
+<td>680</td>
+<td id="cost"><img src="images/r_food.jpg">20 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rhi02.gif" class="preview">
+<img src="images/units/uni_rhi02.gif" class="icon" style="background-image: url(images/units/uni_rhi02.gif)" title="VESFUZ"></a></td>
+<td>
+<a href="data/rhi/vesfuz.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Fusilier</td>
+<td><a href="index.htm#rhi_inf" class="info" title="Check Rhenish Infantry">
+<img src="images/d_rhi.gif"></a></td>
+<td>100</td>
+<td>12</td>
+<td>100</td>
+<td>105</td>
+<td>15</td>
+<td>5</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">20 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#pru_inf" class="info" title="Check Prussian Infantry">
+<img src="images/d_pru.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+</tbody>
+</table>
+
+
+<table id="light" class="squad">
+<tbody>
+<tr id="norm">
+<td><a href="#menu"><img src="images/b_menu.gif" class="info" title="Menu"></a></td>
+<td><img src="images/b_flag.gif"></td>
+<td>Light Infantry - Squad 120 units</td>
+</tr>
+</tbody>
+</table>
+
+<table class="unit unit2">
+<tbody>
+<TR id="norm"><TH class="units">Units</TH><TH class="name">Name</TH><TH class="nation">Nation</TH><TH class="life">Life</TH><TH class="melee">Melee</TH><TH class="ranged">Ranged</TH><TH class="morale">Morale</TH><TH class="training">Training</TH><TH class="coal">Coal</TH><TH class="reload">Reload</TH><TH class="cost">Cost</TH></TR>
+
+<tr><td>
+<a href="images/units/uni_fra03.gif" class="preview">
+<img src="images/units/uni_fra03.gif" class="icon" style="background-image: url(images/units/uni_fra03.gif)" title="FRNVOL"></a></td>
+<td>
+<a href="data/fra/frnvol.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Voltiger</td>
+<td><a href="index.htm#fra_inf" class="info" title="Check French Infantry">
+<img src="images/d_fra.gif"></a></td>
+<!-- Life --><td>100</td>
+<!-- Melee --><td>5</td>
+<!-- Ranged --><td>140</td>
+<!-- Morale --><td>95</td>
+<!-- Training --><td>20</td>
+<!-- Coal --><td>2</td>
+<!-- Reload --><td>700</td>
+<td id="cost"><img src="images/r_food.jpg">50 <img src="images/r_iron.jpg">7
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_aut03.gif" class="preview">
+<img src="images/units/uni_aut03.gif" class="icon" style="background-image: url(images/units/uni_aut03.gif)" title="AUSGRN"></a></td>
+<td>
+<a href="data/aut/ausgrn.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Borders Man</td>
+<td><a href="index.htm#aut_inf" class="info" title="Check Austrian Infantry">
+<img src="images/d_aut.gif"></a></td>
+<td>100</td>
+<td>5</td>
+<td>140</td>
+<td>95</td>
+<td>20</td>
+<td>2</td>
+<td>700</td>
+<td id="cost"><img src="images/r_food.jpg">50 <img src="images/r_iron.jpg">12
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pru03.gif" class="preview">
+<img src="images/units/uni_pru03.gif" class="icon" style="background-image: url(images/units/uni_pru03.gif)" title="PRUBKR"></a></td>
+<td>
+<a href="data/pru/prubkr.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Black Corps</td>
+<td><a href="index.htm#pru_inf" class="info" title="Check Prussian Infantry">
+<img src="images/d_pru.gif"></a></td>
+<td>100</td>
+<td>10</td>
+<td>100</td>
+<td>125</td>
+<td>20</td>
+<td>2</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">50 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_gbr03.gif" class="preview">
+<img src="images/units/uni_gbr03.gif" class="icon" style="background-image: url(images/units/uni_gbr03.gif)" title="ENGEGR"></a></td>
+<td>
+<a href="data/gbr/engegr.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Highlander</td>
+<td><a href="index.htm#gbr_inf" class="info" title="Check British Infantry">
+<img src="images/d_gbr.gif"></a></td>
+<td>100</td>
+<td>5</td>
+<td>130</td>
+<td>125</td>
+<td>20</td>
+<td>2</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">2 <img src="images/r_food.jpg">50 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_egy03.gif" class="preview">
+<img src="images/units/uni_egy03.gif" class="icon" style="background-image: url(images/units/uni_egy03.gif)" title="EGPLUC"></a></td>
+<td>
+<a href="data/egy/egpluc.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Archer</td>
+<td><a href="index.htm#egy_inf" class="info" title="Check Egyptian Infantry">
+<img src="images/d_egy.gif"></a></td>
+<td>80</td>
+<td>5</td>
+<td>21</td>
+<td>105</td>
+<td>15</td>
+<td>-</td>
+<td>250</td>
+<td id="cost"><img src="images/r_food.jpg">10
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pol03.gif" class="preview">
+<img src="images/units/uni_pol03.gif" class="icon" style="background-image: url(images/units/uni_pol03.gif)" title="POLVOL"></a></td>
+<td>
+<a href="data/pol/polvol.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Voltiger</td>
+<td><a href="index.htm#pol_inf" class="info" title="Check Polish Infantry">
+<img src="images/d_pol.gif"></a></td>
+<td>100</td>
+<td>5</td>
+<td>140</td>
+<td>95</td>
+<td>20</td>
+<td>2</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">50 <img src="images/r_iron.jpg">7
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rhi03.gif" class="preview">
+<img src="images/units/uni_rhi03.gif" class="icon" style="background-image: url(images/units/uni_rhi03.gif)" title="VESVOL"></a></td>
+<td>
+<a href="data/rhi/vesvol.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Voltiger</td>
+<td><a href="index.htm#rhi_inf" class="info" title="Check Rhenish Infantry">
+<img src="images/d_rhi.gif"></a></td>
+<td>100</td>
+<td>5</td>
+<td>140</td>
+<td>95</td>
+<td>20</td>
+<td>2</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">50 <img src="images/r_iron.jpg">7
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#rus_inf" class="info" title="Check Russian Infantry">
+<img src="images/d_rus.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#spa_inf" class="info" title="Check Spanish Infantry">
+<img src="images/d_spa.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+</tbody>
+</table>
+
+
+<table id="grena" class="squad">
+<tbody>
+<tr id="norm">
+<td><a href="#menu"><img src="images/b_menu.gif" class="info" title="Menu"></a></td>
+<td><img src="images/b_flag.gif"></td>
+<td>Grenadiers - Squad 120 units</td>
+</tr>
+</tbody>
+</table>
+
+<table class="unit unit2">
+<tbody>
+<TR id="norm"><TH class="units">Units</TH><TH class="name">Name</TH><TH class="nation">Nation</TH><TH class="life">Life</TH><TH class="melee">Melee</TH><TH class="ranged">Ranged</TH><TH class="morale">Morale</TH><TH class="training">Training</TH><TH class="coal">Coal</TH><TH class="reload">Reload</TH><TH class="cost">Cost</TH></TR>
+
+<tr><td>
+<a href="images/units/uni_fra04.gif" class="preview">
+<img src="images/units/uni_fra04.gif" class="icon" style="background-image: url(images/units/uni_fra04.gif)" title="FRNGRE"></a></td>
+<td>
+<a href="data/fra/frngre.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Grenadier</td>
+<td><a href="index.htm#fra_inf" class="info" title="Check French Infantry">
+<img src="images/d_fra.gif"></a></td>
+<!-- Life --><td>105</td>
+<!-- Melee--><td>20</td>
+<!-- Ranged --><td>100</td>
+<!-- Morale --><td>125</td>
+<!-- Training --><td>25</td>
+<!-- Coal --><td>10</td>
+<!-- Reload --><td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">2 <img src="images/r_food.jpg">70 <img src="images/r_iron.jpg">8
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_aut04.gif" class="preview">
+<img src="images/units/uni_aut04.gif" class="icon" style="background-image: url(images/units/uni_aut04.gif)" title="AUSGRE"></a></td>
+<td>
+<a href="data/aut/ausgre.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Grenadier</td>
+<td><a href="index.htm#aut_inf" class="info" title="Check Austrian Infantry">
+<img src="images/d_aut.gif"></a></td>
+<td>110</td>
+<td>12</td>
+<td>100</td>
+<td>105</td>
+<td>25</td>
+<td>10</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">2 <img src="images/r_food.jpg">50 <img src="images/r_iron.jpg">8
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rus04.gif" class="preview">
+<img src="images/units/uni_rus04.gif" class="icon" style="background-image: url(images/units/uni_rus04.gif)" title="RUSGRE"></a></td>
+<td>
+<a href="data/rus/rusgre.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Grenadier</td>
+<td><a href="index.htm#rus_inf" class="info" title="Check Russian Infantry">
+<img src="images/d_rus.gif"></a></td>
+<td>110</td>
+<td>15</td>
+<td>100</td>
+<td>105</td>
+<td>25</td>
+<td>10</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">2 <img src="images/r_food.jpg">100 <img src="images/r_iron.jpg">8
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pru04.gif" class="preview">
+<img src="images/units/uni_pru04.gif" class="icon" style="background-image: url(images/units/uni_pru04.gif)" title="PRUGRE"></a></td>
+<td>
+<a href="data/pru/prugre.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Grenadier</td>
+<td><a href="index.htm#pru_inf" class="info" title="Check Prussian Infantry">
+<img src="images/d_pru.gif"></a></td>
+<td>110</td>
+<td>20</td>
+<td>100</td>
+<td>105</td>
+<td>25</td>
+<td>10</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">2 <img src="images/r_food.jpg">70 <img src="images/r_iron.jpg">8
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_gbr04.gif" class="preview">
+<img src="images/units/uni_gbr04.gif" class="icon" style="background-image: url(images/units/uni_gbr04.gif)" title="ENGGRE"></a></td>
+<td>
+<a href="data/gbr/enggre.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Grenadier</td>
+<td><a href="index.htm#gbr_inf" class="info" title="Check British Infantry">
+<img src="images/d_gbr.gif"></a></td>
+<td>100</td>
+<td>22</td>
+<td>100</td>
+<td>125</td>
+<td>25</td>
+<td>10</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">2<img src="images/r_food.jpg">70 <img src="images/r_iron.jpg">8
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pol04.gif" class="preview">
+<img src="images/units/uni_pol04.gif" class="icon" style="background-image: url(images/units/uni_pol04.gif)" title="POLGRE"></a></td>
+<td>
+<a href="data/pol/polgre.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Grenadier</td>
+<td><a href="index.htm#pol_inf" class="info" title="Check Polish Infantry">
+<img src="images/d_pol.gif"></a></td>
+<td>110</td>
+<td>20</td>
+<td>100</td>
+<td>105</td>
+<td>25</td>
+<td>10</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">2 <img src="images/r_food.jpg">70 <img src="images/r_iron.jpg">8
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_spa04.gif" class="preview">
+<img src="images/units/uni_spa04.gif" class="icon" style="background-image: url(images/units/uni_spa04.gif)" title="SPNGRE"></a></td>
+<td>
+<a href="data/spa/spngre.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Grenadier</td>
+<td><a href="index.htm#spa_inf" class="info" title="Check Spanish Infantry">
+<img src="images/d_spa.gif"></a></td>
+<td>110</td>
+<td>15</td>
+<td>100</td>
+<td>105</td>
+<td>25</td>
+<td>10</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">2 <img src="images/r_food.jpg">50 <img src="images/r_iron.jpg">8
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rhi04.gif" class="preview">
+<img src="images/units/uni_rhi04.gif" class="icon" style="background-image: url(images/units/uni_rhi04.gif)" title="VESGRE"></a></td>
+<td>
+<a href="data/rhi/vesgre.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Grenadier</td>
+<td><a href="index.htm#rhi_inf" class="info" title="Check Rhenish Infantry">
+<img src="images/d_rhi.gif"></a></td>
+<td>110</td>
+<td>20</td>
+<td>100</td>
+<td>105</td>
+<td>25</td>
+<td>10</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">2 <img src="images/r_food.jpg">70 <img src="images/r_iron.jpg">8
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#egy_inf" class="info" title="Check Egyptian Infantry">
+<img src="images/d_egy.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+</tbody>
+</table>
+
+
+<table id="chass" class="squad">
+<tbody>
+<tr id="norm">
+<td><a href="#menu"><img src="images/b_menu.gif" class="info" title="Menu"></a></td>
+<td><img src="images/b_flag.gif"></td>
+<td>Chasseurs - Squad 15 units</td>
+</tbody>
+</table>
+
+<table class="unit unit2">
+<tbody>
+<TR id="norm"><TH class="units">Units</TH><TH class="name">Name</TH><TH class="nation">Nation</TH><TH class="life">Life</TH><TH class="melee">Melee</TH><TH class="ranged">Ranged</TH><TH class="morale">Morale</TH><TH class="training">Training</TH><TH class="coal">Coal</TH><TH class="reload">Reload</TH><TH class="cost">Cost</TH></TR>
+
+<tr><td>
+<a href="images/units/uni_fra05.gif" class="preview">
+<img src="images/units/uni_fra05.gif" class="icon" style="background-image: url(images/units/uni_fra05.gif)" title="FRNEGRNG"></a></td>
+<td>
+<a href="data/fra/frnegrng.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Chasseur</td>
+<td><a href="index.htm#fra_spe" class="info" title="Check French Specialists">
+<img src="images/d_fra.gif"></a></td>
+<!-- Life --><td>100</td>
+<!-- Melee --><td>7</td>
+<!-- Ranged --><td>650</td>
+<!-- Morale --><td>63</td>
+<!-- Training --><td>60</td>
+<!-- Coal --><td>30</td>
+<!-- Reload --><td>500</td>
+<td id="cost"><img src="images/r_food.jpg">100 <img src="images/r_iron.jpg">20
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_aut05.gif" class="preview">
+<img src="images/units/uni_aut05.gif" class="icon" style="background-image: url(images/units/uni_aut05.gif)" title="AUSEGR"></a></td>
+<td>
+<a href="data/aut/ausegr.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Chasseur</td>
+<td><a href="index.htm#aut_spe" class="info" title="Check Austrian Specialists">
+<img src="images/d_aut.gif"></a></td>
+<!-- Life --><td>100</td>
+<!-- Melee --><td>7</td>
+<!-- Ranged --><td>650</td>
+<!-- Morale --><td>63</td>
+<!-- Training --><td>60</td>
+<!-- Coal --><td>30</td>
+<!-- Reload --><td>500</td>
+<td id="cost"><img src="images/r_food.jpg">100 <img src="images/r_iron.jpg">20
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rus05.gif" class="preview">
+<img src="images/units/uni_rus05.gif" class="icon" style="background-image: url(images/units/uni_rus05.gif)" title="RUSEGR"></a></td>
+<td>
+<a href="data/rus/rusegr.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Chasseur</td>
+<td><a href="index.htm#rus_spe" class="info" title="Check Russian Specialists">
+<img src="images/d_rus.gif"></a></td>
+<td>100</td>
+<td>7</td>
+<td>650</td>
+<td>63</td>
+<td>60</td>
+<td>30</td>
+<td>500</td>
+<td id="cost"><img src="images/r_food.jpg">100 <img src="images/r_iron.jpg">20
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pru05.gif" class="preview">
+<img src="images/units/uni_pru05.gif" class="icon" style="background-image: url(images/units/uni_pru05.gif)" title="PRUEGR"></a></td>
+<td>
+<a href="data/pru/pruegr.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Chasseur</td>
+<td><a href="index.htm#pru_spe" class="info" title="Check Prussian Specialists">
+<img src="images/d_pru.gif"></a></td>
+<td>100</td>
+<td>7</td>
+<td>650</td>
+<td>63</td>
+<td>60</td>
+<td>30</td>
+<td>500</td>
+<td id="cost"><img src="images/r_food.jpg">100 <img src="images/r_iron.jpg">20
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_gbr05.gif" class="preview">
+<img src="images/units/uni_gbr05.gif" class="icon" style="background-image: url(images/units/uni_gbr05.gif)" title="ENGEGRNG"></a></td>
+<td>
+<a href="data/gbr/engegrng.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Rifles</td>
+<td><a href="index.htm#gbr_spe" class="info" title="Check British Specialists">
+<img src="images/d_gbr.gif"></a></td>
+<td>100</td>
+<td>7</td>
+<td>650</td>
+<td>63</td>
+<td>60</td>
+<td>30</td>
+<td>500</td>
+<td id="cost"><img src="images/r_food.jpg">100 <img src="images/r_iron.jpg">20
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_egy05.gif" class="preview">
+<img src="images/units/uni_egy05.gif" class="icon" style="background-image: url(images/units/uni_egy05.gif)" title="EGPEGR"></a></td>
+<td>
+<a href="data/egy/egpegr.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Tuareg</td>
+<td><a href="index.htm#egy_spe" class="info" title="Check Egyptian Specialists">
+<img src="images/d_egy.gif"></a></td>
+<td>100</td>
+<td>40</td>
+<td>200</td>
+<td>66</td>
+<td>65</td>
+<td>10</td>
+<td>600</td>
+<td id="cost"><img src="images/r_gold.jpg">20 <img src="images/r_food.jpg">100 <img src="images/r_iron.jpg">20
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_spa05.gif" class="preview">
+<img src="images/units/uni_spa05.gif" class="icon" style="background-image: url(images/units/uni_spa05.gif)" title="SPNEGR"></a></td>
+<td>
+<a href="data/spa/spnegr.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Chasseur</td>
+<td><a href="index.htm#spa_spe" class="info" title="Check Spanish Specialists">
+<img src="images/d_spa.gif"></a></td>
+<td>100</td>
+<td>7</td>
+<td>650</td>
+<td>63</td>
+<td>60</td>
+<td>30</td>
+<td>500</td>
+<td id="cost"><img src="images/r_food.jpg">100 <img src="images/r_iron.jpg">20
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rhi05.gif" class="preview">
+<img src="images/units/uni_rhi05.gif" class="icon" style="background-image: url(images/units/uni_rhi05.gif)" title="VESEGR"></a></td>
+<td>
+<a href="data/rhi/vesegr.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Chasseur</td>
+<td><a href="index.htm#rhi_spe" class="info" title="Check Rhenish Specialists">
+<img src="images/d_rhi.gif"></a></td>
+<td>100</td>
+<td>7</td>
+<td>650</td>
+<td>63</td>
+<td>60</td>
+<td>30</td>
+<td>700</td>
+<td id="cost"><img src="images/r_food.jpg">100 <img src="images/r_iron.jpg">20
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#pol_spe" class="info" title="Check Polish Specialists">
+<img src="images/d_pol.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+</tbody>
+</table>
+
+
+<table id="engin" class="squad">
+<tbody>
+<tr id="norm">
+<td><a href="#menu"><img src="images/b_menu.gif" class="info" title="Menu"></a></td>
+<td><img src="images/b_flag.gif"></td>
+<td>Engineers - Squad 15 units</td>
+</tbody>
+</table>
+
+<table class="unit unit2">
+<tbody>
+<TR id="norm"><TH class="units">Units</TH><TH class="name">Name</TH><TH class="nation">Nation</TH><TH class="life">Life</TH><TH class="melee">Melee</TH><TH class="ranged">Ranged</TH><TH class="morale">Morale</TH><TH class="training">Training</TH><TH class="coal">Coal</TH><TH class="reload">Reload</TH><TH class="cost">Cost</TH></TR>
+
+<tr><td>
+<a href="images/units/uni_fra06.gif" class="preview">
+<img src="images/units/uni_fra06.gif" class="icon" style="background-image: url(images/units/uni_fra06.gif)" title="FRNSAP"></a></td>
+<td>
+<a href="data/fra/frnsap.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Sapper</td>
+<td><a href="index.htm#fra_spe" class="info" title="Check French Specialists">
+<img src="images/d_fra.gif"></a></td>
+<!-- Life --><td>100</td>
+<!-- Melee --><td>10</td>
+<!-- Ranged --><td>100</td>
+<!-- Morale --><td>53</td>
+<!-- Training --><td>100</td>
+<!-- Coal --><td>10</td>
+<!-- Reload --><td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">15 <img src="images/r_food.jpg">50 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_aut06.gif" class="preview">
+<img src="images/units/uni_aut06.gif" class="icon" style="background-image: url(images/units/uni_aut06.gif)" title="AUSSAP"></a></td>
+<td>
+<a href="data/aut/aussap.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Combat Engineer</td>
+<td><a href="index.htm#aut_spe" class="info" title="Check Austrian Specialists">
+<img src="images/d_aut.gif"></a></td>
+<td>100</td>
+<td>10</td>
+<td>100</td>
+<td>53</td>
+<td>100</td>
+<td>10</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">15 <img src="images/r_food.jpg">50 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rus06.gif" class="preview">
+<img src="images/units/uni_rus06.gif" class="icon" style="background-image: url(images/units/uni_rus06.gif)" title="RUSPIO"></a></td>
+<td>
+<a href="data/rus/ruspio.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Pioneer</td>
+<td><a href="index.htm#rus_spe" class="info" title="Check Russian Specialists">
+<img src="images/d_rus.gif"></a></td>
+<td>100</td>
+<td>10</td>
+<td>50</td>
+<td>53</td>
+<td>45</td>
+<td>5</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">15 <img src="images/r_food.jpg">100 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pru06.gif" class="preview">
+<img src="images/units/uni_pru06.gif" class="icon" style="background-image: url(images/units/uni_pru06.gif)" title="PRUSAP"></a></td>
+<td>
+<a href="data/pru/prusap.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Combat Engineer</td>
+<td><a href="index.htm#pru_spe" class="info" title="Check Prussian Specialists">
+<img src="images/d_pru.gif"></a></td>
+<td>100</td>
+<td>10</td>
+<td>100</td>
+<td>53</td>
+<td>100</td>
+<td>10</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">15 <img src="images/r_food.jpg">50 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_gbr06.gif" class="preview">
+<img src="images/units/uni_gbr06.gif" class="icon" style="background-image: url(images/units/uni_gbr06.gif)" title="ENGSAP"></a></td>
+<td>
+<a href="data/gbr/engsap.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Sapper</td>
+<td><a href="index.htm#gbr_spe" class="info" title="Check British Specialists">
+<img src="images/d_gbr.gif"></a></td>
+<td>100</td>
+<td>10</td>
+<td>100</td>
+<td>53</td>
+<td>100</td>
+<td>10</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">15 <img src="images/r_food.jpg">50 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pol06.gif" class="preview">
+<img src="images/units/uni_pol06.gif" class="icon" style="background-image: url(images/units/uni_pol06.gif)" title="POLSAP"></a></td>
+<td>
+<a href="data/pol/polsap.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Sapper</td>
+<td><a href="index.htm#pol_spe" class="info" title="Check Polish Specialists">
+<img src="images/d_pol.gif"></a></td>
+<td>100</td>
+<td>10</td>
+<td>100</td>
+<td>53</td>
+<td>100</td>
+<td>10</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">15 <img src="images/r_food.jpg">50 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_spa06.gif" class="preview">
+<img src="images/units/uni_spa06.gif" class="icon" style="background-image: url(images/units/uni_spa06.gif)" title="SPNSAP"></a></td>
+<td>
+<a href="data/spa/spnsap.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Sapper</td>
+<td><a href="index.htm#spa_spe" class="info" title="Check Spanish Specialists">
+<img src="images/d_spa.gif"></a></td>
+<td>100</td>
+<td>10</td>
+<td>100</td>
+<td>53</td>
+<td>100</td>
+<td>10</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">15 <img src="images/r_food.jpg">50 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rhi06.gif" class="preview">
+<img src="images/units/uni_rhi06.gif" class="icon" style="background-image: url(images/units/uni_rhi06.gif)" title="VESSAP"></a></td>
+<td>
+<a href="data/rhi/vessap.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Sapper</td>
+<td><a href="index.htm#rhi_spe" class="info" title="Check Rhenish Specialists">
+<img src="images/d_rhi.gif"></a></td>
+<td>100</td>
+<td>10</td>
+<td>100</td>
+<td>53</td>
+<td>100</td>
+<td>10</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">15 <img src="images/r_food.jpg">50 <img src="images/r_iron.jpg">5
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#egy_spe" class="info" title="Check Egyptian Specialists">
+<img src="images/d_egy.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+</tbody>
+</table>
+
+<br><br><br>
+
+<table class="squad">
+<tbody>
+<tr id="norm">
+<td><img src="images/c_unit.png"></td>
+<td><img src="images/b_unit_lcav.gif"></td>
+<td><img src="images/c_unit2.png"></td>
+</tr>
+</tbody>
+</table>
+
+<br>
+
+<table id="mchass" class="squad">
+<tbody>
+<tr id="norm">
+<td><a href="#menu"><img src="images/b_menu.gif" class="info" title="Menu"></a></td>
+<td><img src="images/b_flag.gif"></td>
+<td>Mounted Chasseurs - Squad 45 units</td>
+</tbody>
+</table>
+
+<table class="unit unit2">
+<tbody>
+<TR id="norm"><TH class="units">Units</TH><TH class="name">Name</TH><TH class="nation">Nation</TH><TH class="life">Life</TH><TH class="melee">Melee</TH><TH class="ranged">Ranged</TH><TH class="morale">Morale</TH><TH class="training">Training</TH><TH class="coal">Coal</TH><TH class="reload">Reload</TH><TH class="cost">Cost</TH></TR>
+
+<tr><td>
+<a href="images/units/uni_fra07.gif" class="preview">
+<img src="images/units/uni_fra07.gif" class="icon" style="background-image: url(images/units/uni_fra07.gif)" title="FRNKEGR"></a></td>
+<td>
+<a href="data/fra/frnkegr.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Chasseur</td>
+<td><a href="index.htm#fra_lcav" class="info" title="Check French Light Cavalry">
+<img src="images/d_fra.gif"></a></td>
+<!-- Life --><td>250</td>
+<!-- Melee --><td>12</td>
+<!-- Ranged --><td>165</td>
+<!-- Morale --><td>94</td>
+<!-- Training --><td>120</td>
+<!-- Coal --><td>15</td>
+<!-- Reload --><td>800</td>
+<td id="cost"><img src="images/r_food.jpg">60 <img src="images/r_iron.jpg">60
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_aut07.gif" class="preview">
+<img src="images/units/uni_aut07.gif" class="icon" style="background-image: url(images/units/uni_aut07.gif)" title="AUSKDRG"></a></td>
+<td>
+<a href="data/aut/auskdrg.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Light Dragoon</td>
+<td><a href="index.htm#aut_lcav" class="info" title="Check Austrian Light Cavalry">
+<img src="images/d_aut.gif"></a></td>
+<!-- Life --><td>250</td>
+<!-- Melee --><td>12</td>
+<!-- Ranged --><td>165</td>
+<!-- Morale --><td>94</td>
+<!-- Training --><td>120</td>
+<!-- Coal --><td>15</td>
+<!-- Reload --><td>800</td>
+<td id="cost"><img src="images/r_food.jpg">60 <img src="images/r_iron.jpg">60
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rus07.gif" class="preview">
+<img src="images/units/uni_rus07.gif" class="icon" style="background-image: url(images/units/uni_rus07.gif)" title="RUSKEGR"></a></td>
+<td>
+<a href="data/rus/ruskegr.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Chasseur</td>
+<td><a href="index.htm#rus_lcav" class="info" title="Check Russian Light Cavalry">
+<img src="images/d_rus.gif"></a></td>
+<td>250</td>
+<td>12</td>
+<td>165</td>
+<td>94</td>
+<td>120</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">60 <img src="images/r_iron.jpg">60
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pru07.gif" class="preview">
+<img src="images/units/uni_pru07.gif" class="icon" style="background-image: url(images/units/uni_pru07.gif)" title="PRUKEGR"></a></td>
+<td>
+<a href="data/pru/prukegr.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Chasseur</td>
+<td><a href="index.htm#pru_lcav" class="info" title="Check Prussian Light Cavalry">
+<img src="images/d_pru.gif"></a></td>
+<td>250</td>
+<td>12</td>
+<td>165</td>
+<td>94</td>
+<td>120</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">50 <img src="images/r_iron.jpg">50
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_gbr07.gif" class="preview">
+<img src="images/units/uni_gbr07.gif" class="icon" style="background-image: url(images/units/uni_gbr07.gif)" title="ENGKDRGL"></a></td>
+<td>
+<a href="data/gbr/engkdrgl.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Light Dragoon</td>
+<td><a href="index.htm#gbr_lcav" class="info" title="Check British Light Cavalry">
+<img src="images/d_gbr.gif"></a></td>
+<td>250</td>
+<td>12</td>
+<td>165</td>
+<td>94</td>
+<td>120</td>
+<td>10</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">60 <img src="images/r_iron.jpg">60
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pol07.gif" class="preview">
+<img src="images/units/uni_pol07.gif" class="icon" style="background-image: url(images/units/uni_pol07.gif)" title="POLKEGR"></a></td>
+<td>
+<a href="data/pol/polkegr.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Chasseur</td>
+<td><a href="index.htm#pol_lcav" class="info" title="Check Polish Light Cavalry">
+<img src="images/d_pol.gif"></a></td>
+<td>250</td>
+<td>12</td>
+<td>165</td>
+<td>94</td>
+<td>120</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">60 <img src="images/r_iron.jpg">50
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_spa07.gif" class="preview">
+<img src="images/units/uni_spa07.gif" class="icon" style="background-image: url(images/units/uni_spa07.gif)" title="SPNKEGR"></a></td>
+<td>
+<a href="data/spa/spnkegr.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Cazador</td>
+<td><a href="index.htm#spa_lcav" class="info" title="Check Spanish Light Cavalry">
+<img src="images/d_spa.gif"></a></td>
+<td>300</td>
+<td>12</td>
+<td>165</td>
+<td>94</td>
+<td>120</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">60 <img src="images/r_iron.jpg">60
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rhi07.gif" class="preview">
+<img src="images/units/uni_rhi07.gif" class="icon" style="background-image: url(images/units/uni_rhi07.gif)" title="VESKEGR"></a></td>
+<td>
+<a href="data/rhi/veskegr.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Chasseur</td>
+<td><a href="index.htm#rhi_lcav" class="info" title="Check Rhenish Light Cavalry">
+<img src="images/d_rhi.gif"></a></td>
+<td>250</td>
+<td>12</td>
+<td>165</td>
+<td>94</td>
+<td>120</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">60 <img src="images/r_iron.jpg">60
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#egy_lcav" class="info" title="Check Egyptian Light Cavalry">
+<img src="images/d_egy.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+</tbody>
+</table>
+
+
+<table id="muhl" class="squad">
+<tbody>
+<tr id="norm">
+<td><a href="#menu"><img src="images/b_menu.gif" class="info" title="Menu"></a></td>
+<td><img src="images/b_flag.gif"></td>
+<td>Mounted Uhlans - Squad 45 units</td>
+</tbody>
+</table>
+
+<table class="unit unit2">
+<tbody>
+<TR id="norm"><TH class="units">Units</TH><TH class="name">Name</TH><TH class="nation">Nation</TH><TH class="life">Life</TH><TH class="melee">Melee</TH><TH class="ranged">Ranged</TH><TH class="morale">Morale</TH><TH class="training">Training</TH><TH class="coal">Coal</TH><TH class="reload">Reload</TH><TH class="cost">Cost</TH></TR>
+
+<tr><td>
+<a href="images/units/uni_fra08.gif" class="preview">
+<img src="images/units/uni_fra08.gif" class="icon" style="background-image: url(images/units/uni_fra08.gif)" title="FRNKULN"></a></td>
+<td>
+<a href="data/fra/frnkuln.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Uhlan</td>
+<td><a href="index.htm#fra_lcav" class="info" title="Check French Light Cavalry">
+<img src="images/d_fra.gif"></a></td>
+<td>250</td>
+<td>14</td>
+<td>-</td>
+<td>94</td>
+<td>90</td>
+<td>-</td>
+<td>-</td>
+<td id="cost"><img src="images/r_food.jpg">60 <img src="images/r_wood.jpg">200
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_aut08.gif" class="preview">
+<img src="images/units/uni_aut08.gif" class="icon" style="background-image: url(images/units/uni_aut08.gif)" title="AUSKULN"></a></td>
+<td>
+<a href="data/aut/auskuln.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Uhlan</td>
+<td><a href="index.htm#aut_lcav" class="info" title="Check Austrian Light Cavalry">
+<img src="images/d_aut.gif"></a></td>
+<td>250</td>
+<td>14</td>
+<td>-</td>
+<td>94</td>
+<td>90</td>
+<td>-</td>
+<td>-</td>
+<td id="cost"><img src="images/r_food.jpg">40 <img src="images/r_wood.jpg">200
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rus08.gif" class="preview">
+<img src="images/units/uni_rus08.gif" class="icon" style="background-image: url(images/units/uni_rus08.gif)" title="RUSKULN"></a></td>
+<td>
+<a href="data/rus/ruskuln.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Uhlan</td>
+<td><a href="index.htm#rus_lcav" class="info" title="Check Russian Light Cavalry">
+<img src="images/d_rus.gif"></a></td>
+<td>250</td>
+<td>14</td>
+<td>-</td>
+<td>94</td>
+<td>90</td>
+<td>-</td>
+<td>-</td>
+<td id="cost"><img src="images/r_food.jpg">60 <img src="images/r_wood.jpg">200
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pol08.gif" class="preview">
+<img src="images/units/uni_pol08.gif" class="icon" style="background-image: url(images/units/uni_pol08.gif)" title="POLKULN"></a></td>
+<td>
+<a href="data/pol/polkuln.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Uhlan</td>
+<td><a href="index.htm#pol_lcav" class="info" title="Check Polish Light Cavalry">
+<img src="images/d_pol.gif"></a></td>
+<td>250</td>
+<td>15</td>
+<td>-</td>
+<td>109</td>
+<td>88</td>
+<td>-</td>
+<td>-</td>
+<td id="cost"><img src="images/r_food.jpg">50 <img src="images/r_wood.jpg">200
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rhi08.gif" class="preview">
+<img src="images/units/uni_rhi08.gif" class="icon" style="background-image: url(images/units/uni_rhi08.gif)" title="VESKLAN"></a></td>
+<td>
+<a href="data/rhi/vesklan.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Light Cavalryman</td>
+<td><a href="index.htm#rhi_lcav" class="info" title="Check Rhenish Light Cavalry">
+<img src="images/d_rhi.gif"></a></td>
+<td>250</td>
+<td>14</td>
+<td>-</td>
+<td>94</td>
+<td>88</td>
+<td>-</td>
+<td>-</td>
+<td id="cost"><img src="images/r_food.jpg">40 <img src="images/r_wood.jpg">200
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#pru_lcav" class="info" title="Check Prussian Light Cavalry">
+<img src="images/d_pru.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#gbr_lcav" class="info" title="Check British Light Cavalry">
+<img src="images/d_gbr.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#egy_lcav" class="info" title="Check Egyptian Light Cavalry">
+<img src="images/d_egy.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#spa_lcav" class="info" title="Check Spanish Light Cavalry">
+<img src="images/d_spa.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+</tbody>
+</table>
+
+
+<table id="mhus" class="squad">
+<tbody>
+<tr id="norm">
+<td><a href="#menu"><img src="images/b_menu.gif" class="info" title="Menu"></a></td>
+<td><img src="images/b_flag.gif"></td>
+<td>Mounted Hussars - Squad 45 units</td>
+</tbody>
+</table>
+
+<table class="unit unit2">
+<tbody>
+<TR id="norm"><TH class="units">Units</TH><TH class="name">Name</TH><TH class="nation">Nation</TH><TH class="life">Life</TH><TH class="melee">Melee</TH><TH class="ranged">Ranged</TH><TH class="morale">Morale</TH><TH class="training">Training</TH><TH class="coal">Coal</TH><TH class="reload">Reload</TH><TH class="cost">Cost</TH></TR>
+
+<tr><td>
+<a href="images/units/uni_fra09.gif" class="preview">
+<img src="images/units/uni_fra09.gif" class="icon" style="background-image: url(images/units/uni_fra09.gif)" title="FRNKGUS"></a></td>
+<td>
+<a href="data/fra/frnkgus.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Hussar</td>
+<td><a href="index.htm#fra_lcav" class="info" title="Check French Light Cavalry">
+<img src="images/d_fra.gif"></a></td>
+<td>300</td>
+<td>17</td>
+<td>5</td>
+<td>94</td>
+<td>130</td>
+<td>15</td>
+<td>900</td>
+<td id="cost"><img src="images/r_food.jpg">80 <img src="images/r_iron.jpg">70
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_aut09.gif" class="preview">
+<img src="images/units/uni_aut09.gif" class="icon" style="background-image: url(images/units/uni_aut09.gif)" title="AUSKGUS"></a></td>
+<td>
+<a href="data/aut/auskgus.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Hussar</td>
+<td><a href="index.htm#aut_lcav" class="info" title="Check Austrian Light Cavalry">
+<img src="images/d_aut.gif"></a></td>
+<td>300</td>
+<td>17</td>
+<td>5</td>
+<td>94</td>
+<td>130</td>
+<td>15</td>
+<td>900</td>
+<td id="cost"><img src="images/r_food.jpg">80 <img src="images/r_iron.jpg">70
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rus09.gif" class="preview">
+<img src="images/units/uni_rus09.gif" class="icon" style="background-image: url(images/units/uni_rus09.gif)" title="RUSKGUS"></a></td>
+<td>
+<a href="data/rus/ruskgus.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Hussar</td>
+<td><a href="index.htm#rus_lcav" class="info" title="Check Russian Light Cavalry">
+<img src="images/d_rus.gif"></a></td>
+<td>300</td>
+<td>17</td>
+<td>5</td>
+<td>94</td>
+<td>130</td>
+<td>15</td>
+<td>900</td>
+<td id="cost"><img src="images/r_food.jpg">80 <img src="images/r_iron.jpg">70
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pru09.gif" class="preview">
+<img src="images/units/uni_pru09.gif" class="icon" style="background-image: url(images/units/uni_pru09.gif)" title="PRUKGUS"></a></td>
+<td>
+<a href="data/pru/prukgus.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Hussar</td>
+<td><a href="index.htm#pru_lcav" class="info" title="Check Prussian Light Cavalry">
+<img src="images/d_pru.gif"></a></td>
+<td>300</td>
+<td>17</td>
+<td>5</td>
+<td>94</td>
+<td>130</td>
+<td>15</td>
+<td>900</td>
+<td id="cost"><img src="images/r_food.jpg">80 <img src="images/r_iron.jpg">70
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_gbr09.gif" class="preview">
+<img src="images/units/uni_gbr09.gif" class="icon" style="background-image: url(images/units/uni_gbr09.gif)" title="ENGKGUS"></a></td>
+<td>
+<a href="data/gbr/engkgus.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Hussar</td>
+<td><a href="index.htm#gbr_lcav" class="info" title="Check British Light Cavalry">
+<img src="images/d_gbr.gif"></a></td>
+<td>300</td>
+<td>17</td>
+<td>5</td>
+<td>94</td>
+<td>130</td>
+<td>15</td>
+<td>900</td>
+<td id="cost"><img src="images/r_food.jpg">80 <img src="images/r_iron.jpg">70
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pol09.gif" class="preview">
+<img src="images/units/uni_pol09.gif" class="icon" style="background-image: url(images/units/uni_pol09.gif)" title="POLKGUS"></a></td>
+<td>
+<a href="data/pol/polkgus.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Hussar</td>
+<td><a href="index.htm#pol_lcav" class="info" title="Check Polish Light Cavalry">
+<img src="images/d_pol.gif"></a></td>
+<td>300</td>
+<td>17</td>
+<td>5</td>
+<td>109</td>
+<td>130</td>
+<td>15</td>
+<td>900</td>
+<td id="cost"><img src="images/r_food.jpg">80 <img src="images/r_iron.jpg">70
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_spa09.gif" class="preview">
+<img src="images/units/uni_spa09.gif" class="icon" style="background-image: url(images/units/uni_spa09.gif)" title="SPNKGUS"></a></td>
+<td>
+<a href="data/spa/spnkgus.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Hussar</td>
+<td><a href="index.htm#spa_lcav" class="info" title="Check Spanish Light Cavalry">
+<img src="images/d_spa.gif"></a></td>
+<td>300</td>
+<td>17</td>
+<td>5</td>
+<td>94</td>
+<td>130</td>
+<td>15</td>
+<td>900</td>
+<td id="cost"><img src="images/r_food.jpg">80 <img src="images/r_iron.jpg">70
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rhi09.gif" class="preview">
+<img src="images/units/uni_rhi09.gif" class="icon" style="background-image: url(images/units/uni_rhi09.gif)" title="VESKGUS"></a></td>
+<td>
+<a href="data/rhi/veskgus.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Hussar</td>
+<td><a href="index.htm#rhi_lcav" class="info" title="Check Rhenish Light Cavalry">
+<img src="images/d_rhi.gif"></a></td>
+<td>300</td>
+<td>17</td>
+<td>5</td>
+<td>94</td>
+<td>130</td>
+<td>15</td>
+<td>900</td>
+<td id="cost"><img src="images/r_food.jpg">80 <img src="images/r_iron.jpg">70
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#egy_lcav" class="info" title="Check Egyptian Light Cavalry">
+<img src="images/d_egy.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+</tbody>
+</table>
+
+<br><br><br>
+
+<table class="squad">
+<tbody>
+<tr id="norm">
+<td><img src="images/c_unit.png"></td>
+<td><img src="images/b_unit_hcav.gif"></td>
+<td><img src="images/c_unit2.png"></td>
+</tr>
+</tbody>
+</table>
+
+<br>
+
+<table id="mdra" class="squad">
+<tbody>
+<tr id="norm">
+<td><a href="#menu"><img src="images/b_menu.gif" class="info" title="Menu"></a></td>
+<td><img src="images/b_flag.gif"></td>
+<td>Mounted Dragoons - Squad 45 units</td>
+</tbody>
+</table>
+
+<table class="unit unit2">
+<tbody>
+<TR id="norm"><TH class="units">Units</TH><TH class="name">Name</TH><TH class="nation">Nation</TH><TH class="life">Life</TH><TH class="melee">Melee</TH><TH class="ranged">Ranged</TH><TH class="morale">Morale</TH><TH class="training">Training</TH><TH class="coal">Coal</TH><TH class="reload">Reload</TH><TH class="cost">Cost</TH></TR>
+
+<tr><td>
+<a href="images/units/uni_fra10.gif" class="preview">
+<img src="images/units/uni_fra10.gif" class="icon" style="background-image: url(images/units/uni_fra10.gif)" title="FRNKDRG"></a></td>
+<td>
+<a href="data/fra/frnkdrg.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Dragoon</td>
+<td><a href="index.htm#fra_hcav" class="info" title="Check French Heavy Cavalry">
+<img src="images/d_fra.gif"></a></td>
+<!-- Life --><td>300</td>
+<!-- Melee --><td>16</td>
+<!-- Ranged --><td>170</td>
+<!-- Morale --><td>109</td>
+<!-- Training--><td>120</td>
+<!-- Coal --><td>15</td>
+<!-- Reload --><td>800</td>
+<td id="cost"><img src="images/r_food.jpg">90 <img src="images/r_iron.jpg">60
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_aut10.gif" class="preview">
+<img src="images/units/uni_aut10.gif" class="icon" style="background-image: url(images/units/uni_aut10.gif)" title="AUSKDRGT"></a></td>
+<td>
+<a href="data/aut/auskdrgt.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Heavy Dragoon</td>
+<td><a href="index.htm#aut_hcav" class="info" title="Check Austrian Heavy Cavalry">
+<img src="images/d_aut.gif"></a></td>
+<td>300</td>
+<td>20</td>
+<td>180</td>
+<td>94</td>
+<td>150</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">5 <img src="images/r_food.jpg">90 <img src="images/r_iron.jpg">80
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rus10.gif" class="preview">
+<img src="images/units/uni_rus10.gif" class="icon" style="background-image: url(images/units/uni_rus10.gif)" title="RUSKDRG"></a></td>
+<td>
+<a href="data/rus/ruskdrg.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Dragoon</td>
+<td><a href="index.htm#rus_hcav" class="info" title="Check Russian Heavy Cavalry">
+<img src="images/d_rus.gif"></a></td>
+<td>300</td>
+<td>16</td>
+<td>170</td>
+<td>94</td>
+<td>120</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">90 <img src="images/r_iron.jpg">60
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pru10.gif" class="preview">
+<img src="images/units/uni_pru10.gif" class="icon" style="background-image: url(images/units/uni_pru10.gif)" title="PRUKDRG"></a></td>
+<td>
+<a href="data/pru/prukdrg.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Dragoon</td>
+<td><a href="index.htm#pru_hcav" class="info" title="Check Prussian Heavy Cavalry">
+<img src="images/d_pru.gif"></a></td>
+<td>300</td>
+<td>16</td>
+<td>170</td>
+<td>109</td>
+<td>120</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">90 <img src="images/r_iron.jpg">60
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_gbr10.gif" class="preview">
+<img src="images/units/uni_gbr10.gif" class="icon" style="background-image: url(images/units/uni_gbr10.gif)" title="ENGKDRGT"></a></td>
+<td>
+<a href="data/gbr/engkdrgt.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Heavy Dragoon</td>
+<td><a href="index.htm#gbr_hcav" class="info" title="Check British Heavy Cavalry">
+<img src="images/d_gbr.gif"></a></td>
+<td>300</td>
+<td>23</td>
+<td>210</td>
+<td>94</td>
+<td>160</td>
+<td>10</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">15 <img src="images/r_food.jpg">100 <img src="images/r_iron.jpg">100
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_spa10.gif" class="preview">
+<img src="images/units/uni_spa10.gif" class="icon" style="background-image: url(images/units/uni_spa10.gif)" title="SPNKDRG"></a></td>
+<td>
+<a href="data/spa/spnkdrg.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Dragoon</td>
+<td><a href="index.htm#spa_hcav" class="info" title="Check Spanish Heavy Cavalry">
+<img src="images/d_spa.gif"></a></td>
+<td>300</td>
+<td>16</td>
+<td>170</td>
+<td>94</td>
+<td>120</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">90 <img src="images/r_iron.jpg">60
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rhi10.gif" class="preview">
+<img src="images/units/uni_rhi10.gif" class="icon" style="background-image: url(images/units/uni_rhi10.gif)" title="VESKDRG"></a></td>
+<td>
+<a href="data/rhi/veskdrg.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Dragoon</td>
+<td><a href="index.htm#rhi_hcav" class="info" title="Check Rhenish Heavy Cavalry">
+<img src="images/d_rhi.gif"></a></td>
+<td>300</td>
+<td>20</td>
+<td>180</td>
+<td>109</td>
+<td>150</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">5 <img src="images/r_food.jpg">90 <img src="images/r_iron.jpg">80
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#egy_hcav" class="info" title="Check Egyptian Heavy Cavalry">
+<img src="images/d_egy.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#pol_hcav" class="info" title="Check Polish Heavy Cavalry">
+<img src="images/d_pol.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+</tbody>
+</table>
+
+
+<table id="mcui" class="squad">
+<tbody>
+<tr id="norm">
+<td><a href="#menu"><img src="images/b_menu.gif" class="info" title="Menu"></a></td>
+<td><img src="images/b_flag.gif"></td>
+<td>Mounted Cuirassiers - Squad 45 units</td>
+</tbody>
+</table>
+
+<table class="unit unit2">
+<tbody>
+<TR id="norm"><TH class="units">Units</TH><TH class="name">Name</TH><TH class="nation">Nation</TH><TH class="life">Life</TH><TH class="melee">Melee</TH><TH class="ranged">Ranged</TH><TH class="morale">Morale</TH><TH class="training">Training</TH><TH class="coal">Coal</TH><TH class="reload">Reload</TH><TH class="cost">Cost</TH></TR>
+
+<tr><td>
+<a href="images/units/uni_fra11.gif" class="preview">
+<img src="images/units/uni_fra11.gif" class="icon" style="background-image: url(images/units/uni_fra11.gif)" title="FRNKKIR"></a></td>
+<td>
+<a href="data/fra/frnkkir.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Cuirassier</td>
+<td><a href="index.htm#fra_hcav" class="info" title="Check French Heavy Cavalry">
+<img src="images/d_fra.gif"></a></td>
+<td>300</td>
+<td>25</td>
+<td>50</td>
+<td>109</td>
+<td>150</td>
+<td>15</td>
+<td>900</td>
+<td id="cost"><img src="images/r_gold.jpg">10 <img src="images/r_food.jpg">100 <img src="images/r_iron.jpg">85
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_aut11.gif" class="preview">
+<img src="images/units/uni_aut11.gif" class="icon" style="background-image: url(images/units/uni_aut11.gif)" title="AUSKKIR"></a></td>
+<td>
+<a href="data/aut/auskkir.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Cuirassier</td>
+<td><a href="index.htm#aut_hcav" class="info" title="Check Austrian Heavy Cavalry">
+<img src="images/d_aut.gif"></a></td>
+<td>300</td>
+<td>25</td>
+<td>50</td>
+<td>94</td>
+<td>150</td>
+<td>15</td>
+<td>900</td>
+<td id="cost"><img src="images/r_gold.jpg">50 <img src="images/r_food.jpg">200 <img src="images/r_iron.jpg">150
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rus11.gif" class="preview">
+<img src="images/units/uni_rus11.gif" class="icon" style="background-image: url(images/units/uni_rus11.gif)" title="RUSKKIR"></a></td>
+<td>
+<a href="data/rus/ruskkir.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Cuirassier</td>
+<td><a href="index.htm#rus_hcav" class="info" title="Check Russian Heavy Cavalry">
+<img src="images/d_rus.gif"></a></td>
+<td>300</td>
+<td>25</td>
+<td>50</td>
+<td>104</td>
+<td>150</td>
+<td>15</td>
+<td>900</td>
+<td id="cost"><img src="images/r_gold.jpg">10 <img src="images/r_food.jpg">100 <img src="images/r_iron.jpg">85
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pru11.gif" class="preview">
+<img src="images/units/uni_pru11.gif" class="icon" style="background-image: url(images/units/uni_pru11.gif)" title="PRUKKIR"></a></td>
+<td>
+<a href="data/pru/prukkir.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Cuirassier</td>
+<td><a href="index.htm#pru_hcav" class="info" title="Check Prussian Heavy Cavalry">
+<img src="images/d_pru.gif"></a></td>
+<td>300</td>
+<td>25</td>
+<td>50</td>
+<td>109</td>
+<td>150</td>
+<td>15</td>
+<td>900</td>
+<td id="cost"><img src="images/r_gold.jpg">10 <img src="images/r_food.jpg">100 <img src="images/r_iron.jpg">70
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pol11.gif" class="preview">
+<img src="images/units/uni_pol11.gif" class="icon" style="background-image: url(images/units/uni_pol11.gif)" title="POLKKIR"></a></td>
+<td>
+<a href="data/pol/polkkir.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Cuirassier</td>
+<td><a href="index.htm#pol_hcav" class="info" title="Check Polish Heavy Cavalry">
+<img src="images/d_pol.gif"></a></td>
+<td>300</td>
+<td>25</td>
+<td>50</td>
+<td>109</td>
+<td>150</td>
+<td>15</td>
+<td>900</td>
+<td id="cost"><img src="images/r_gold.jpg">10 <img src="images/r_food.jpg">100 <img src="images/r_iron.jpg">85
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#gbr_hcav" class="info" title="Check British Heavy Cavalry">
+<img src="images/d_gbr.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#egy_hcav" class="info" title="Check Egyptian Heavy Cavalry">
+<img src="images/d_egy.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#spa_hcav" class="info" title="Check Spanish Heavy Cavalry">
+<img src="images/d_spa.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+
+<tr><td class="empty"></td>
+<td>-</td>
+<td><a href="index.htm#rhi_hcav" class="info" title="Check Rhenish Heavy Cavalry">
+<img src="images/d_rhi.gif"></a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td id="cost">
+</td></tr>
+</tbody>
+</table>
+
+<br><br><br>
+
+<table class="squad">
+<tbody>
+<tr id="norm">
+<td><img src="images/c_unit.png"></td>
+<td><img src="images/b_unit_uniq.gif"></td>
+<td><img src="images/c_unit2.png"></td>
+</tr>
+</tbody>
+</table>
+
+<br>
+
+<table id="ulcav" class="squad">
+<tbody>
+<tr id="norm">
+<td><a href="#menu"><img src="images/b_menu.gif" class="info" title="Menu"></a></td>
+<td><img src="images/b_flag.gif"></td>
+<td>Unique Light Cavalry - Squad 45 units</td>
+</tbody>
+</table>
+
+<table class="unit unit2">
+<tbody>
+<TR id="norm"><TH class="units">Units</TH><TH class="name">Name</TH><TH class="nation">Nation</TH><TH class="life">Life</TH><TH class="melee">Melee</TH><TH class="ranged">Ranged</TH><TH class="morale">Morale</TH><TH class="training">Training</TH><TH class="coal">Coal</TH><TH class="reload">Reload</TH><TH class="cost">Cost</TH></TR>
+
+<tr><td>
+<a href="images/units/uni_fra12.gif" class="preview">
+<img src="images/units/uni_fra12.gif" class="icon" style="background-image: url(images/units/uni_fra12.gif)" title="FRNKMAM"></a></td>
+<td>
+<a href="data/fra/frnkmam.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Mameluke</td>
+<td><a href="index.htm#fra_lcav" class="info" title="Check French Light Cavalry">
+<img src="images/d_fra.gif"></a></td>
+<td>400</td>
+<td>20</td>
+<td>70</td>
+<td>94</td>
+<td>170</td>
+<td>15</td>
+<td>900</td>
+<td id="cost"><img src="images/r_gold.jpg">10 <img src="images/r_food.jpg">120 <img src="images/r_iron.jpg">80
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rus12.gif" class="preview">
+<img src="images/units/uni_rus12.gif" class="icon" style="background-image: url(images/units/uni_rus12.gif)" title="RUSKDKOZ"></a></td>
+<td>
+<a href="data/rus/ruskdkoz.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Don Cossack</td>
+<td><a href="index.htm#rus_lcav" class="info" title="Check Russian Light Cavalry">
+<img src="images/d_rus.gif"></a></td>
+<td>300</td>
+<td>14</td>
+<td>150</td>
+<td>94</td>
+<td>130</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_wood.jpg">100 <img src="images/r_food.jpg">80 <img src="images/r_iron.jpg">45
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_egy08.gif" class="preview">
+<img src="images/units/uni_egy08.gif" class="icon" style="background-image: url(images/units/uni_egy08.gif)" title="TURKARB"></a></td>
+<td>
+<a href="data/egy/turkarb.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Light Cavalry</td>
+<td><a href="index.htm#egy_lcav" class="info" title="Check Egyptian Light Cavalry">
+<img src="images/d_egy.gif"></a></td>
+<td>300</td>
+<td>18</td>
+<td>50</td>
+<td>84</td>
+<td>65</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">100 <img src="images/r_iron.jpg">70
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_egy09.gif" class="preview">
+<img src="images/units/uni_egy09.gif" class="icon" style="background-image: url(images/units/uni_egy09.gif)" title="EGPKMAM"></a></td>
+<td>
+<a href="data/egy/egpkmam.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Mameluke</td>
+<td><a href="index.htm#egy_lcav" class="info" title="Check Egyptian Light Cavalry">
+<img src="images/d_egy.gif"></a></td>
+<td>400</td>
+<td>25</td>
+<td>100</td>
+<td>84</td>
+<td>140</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">20 <img src="images/r_food.jpg">150 <img src="images/r_iron.jpg">130
+</td></tr>
+</tbody>
+</table>
+
+
+<table id="uhcav" class="squad">
+<tbody>
+<tr id="norm">
+<td><a href="#menu"><img src="images/b_menu.gif" class="info" title="Menu"></a></td>
+<td><img src="images/b_flag.gif"></td>
+<td>Unique Heavy Cavalry - Squad 45 units</td>
+</tbody>
+</table>
+
+<table class="unit unit2">
+<tbody>
+<TR id="norm"><TH class="units">Units</TH><TH class="name">Name</TH><TH class="nation">Nation</TH><TH class="life">Life</TH><TH class="melee">Melee</TH><TH class="ranged">Ranged</TH><TH class="morale">Morale</TH><TH class="training">Training</TH><TH class="coal">Coal</TH><TH class="reload">Reload</TH><TH class="cost">Cost</TH></TR>
+
+<tr><td>
+<a href="images/units/uni_fra13.gif" class="preview">
+<img src="images/units/uni_fra13.gif" class="icon" style="background-image: url(images/units/uni_fra13.gif)" title="FRNKGRE"></a></td>
+<td>
+<a href="data/fra/frnkgre.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Grenadier</td>
+<td><a href="index.htm#fra_hcav" class="info" title="Check French Heavy Cavalry">
+<img src="images/d_fra.gif"></a></td>
+<td>300</td>
+<td>20</td>
+<td>210</td>
+<td>109</td>
+<td>160</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">10 <img src="images/r_food.jpg">100 <img src="images/r_iron.jpg">100
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_fra14.gif" class="preview">
+<img src="images/units/uni_fra14.gif" class="icon" style="background-image: url(images/units/uni_fra14.gif)" title="FRNKKAR"></a></td>
+<td>
+<a href="data/fra/frnkkar.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Carabineer</td>
+<td><a href="index.htm#fra_hcav" class="info" title="Check French Heavy Cavalry">
+<img src="images/d_fra.gif"></a></td>
+<td>400</td>
+<td>25</td>
+<td>170</td>
+<td>109</td>
+<td>170</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">15 <img src="images/r_food.jpg">120 <img src="images/r_iron.jpg">120
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_rus13.gif" class="preview">
+<img src="images/units/uni_rus13.gif" class="icon" style="background-image: url(images/units/uni_rus13.gif)" title="RUSKCHKOZ"></a></td>
+<td>
+<a href="data/rus/ruskchkoz.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Black Sea Cossack</td>
+<td><a href="index.htm#rus_hcav" class="info" title="Check Russian Heavy Cavalry">
+<img src="images/d_rus.gif"></a></td>
+<td>400</td>
+<td>25</td>
+<td>160</td>
+<td>94</td>
+<td>170</td>
+<td>10</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">20 <img src="images/r_food.jpg">120 <img src="images/r_iron.jpg">100
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pru12.gif" class="preview">
+<img src="images/units/uni_pru12.gif" class="icon" style="background-image: url(images/units/uni_pru12.gif)" title="PRUKGVR"></a></td>
+<td>
+<a href="data/pru/prukgvr.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Guard</td>
+<td><a href="index.htm#pru_hcav" class="info" title="Check Prussian Heavy Cavalry">
+<img src="images/d_pru.gif"></a></td>
+<td>400</td>
+<td>25</td>
+<td>170</td>
+<td>109</td>
+<td>170</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">10 <img src="images/r_food.jpg">120 <img src="images/r_iron.jpg">120
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_egy10.gif" class="preview">
+<img src="images/units/uni_egy10.gif" class="icon" style="background-image: url(images/units/uni_egy10.gif)" title="EGPKCEM"></a></td>
+<td>
+<a href="data/egy/egpkcem.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Bedouin</td>
+<td><a href="index.htm#egy_hcav" class="info" title="Check Egyptian Heavy Cavalry">
+<img src="images/d_egy.gif"></a></td>
+<td>400</td>
+<td>14</td>
+<td>170</td>
+<td>84</td>
+<td>50</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_food.jpg">70 <img src="images/r_iron.jpg">40
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_pol12.gif" class="preview">
+<img src="images/units/uni_pol12.gif" class="icon" style="background-image: url(images/units/uni_pol12.gif)" title="POLKKRA"></a></td>
+<td>
+<a href="data/pol/polkkra.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Krakuse</td>
+<td><a href="index.htm#pol_hcav" class="info" title="Check Polish Heavy Cavalry">
+<img src="images/d_pol.gif"></a></td>
+<td>400</td>
+<td>23</td>
+<td>100</td>
+<td>109</td>
+<td>170</td>
+<td>15</td>
+<td>1200</td>
+<td id="cost"><img src="images/r_gold.jpg">15 <img src="images/r_food.jpg">150 <img src="images/r_iron.jpg">130
+</td></tr>
+
+<tr><td>
+<a href="images/units/uni_spa12.gif" class="preview">
+<img src="images/units/uni_spa12.gif" class="icon" style="background-image: url(images/units/uni_spa12.gif)" title="SPNKGVR"></a></td>
+<td>
+<a href="data/spa/spnkgvr.htm" rel="#overlay"><img src="images/c_book.png" class="book"></a>
+Mounted Guard</td>
+<td><a href="index.htm#spa_hcav" class="info" title="Check Spanish Heavy Cavalry">
+<img src="images/d_spa.gif"></a></td>
+<td>400</td>
+<td>25</td>
+<td>170</td>
+<td>109</td>
+<td>170</td>
+<td>15</td>
+<td>800</td>
+<td id="cost"><img src="images/r_gold.jpg">20 <img src="images/r_food.jpg">150 <img src="images/r_iron.jpg">130
+</td></tr>
+</tbody>
+</table>
+
+</div>
+
+<br><br>
+
+<div style="width: 64px; margin: auto; margin-bottom: -64px;"><img src="images/end.png"></div>
+
+
+<!-- Fin cadre central -->
+
+
+
+</td>
+<td width="26" style="background: url(images/frame_right.jpg);"></td>
+</tr>
+<tr id="norm">
+<td width="26" height="26" style="background: url(images/frame_coin.jpg);"></td>
+<td height="26" style="background: url(images/frame_bottom.jpg);"></td>
+<td width="26" height="26" style="background: url(images/frame_coin.jpg);"></td>
+</tr>
+</tbody>
+</table>
+
+<div id="credits">- 2018 -
+<br>- Website created by Ouaz (<a href="https://github.com/Ouaz">Visit my GitHub!</a>) -
+<br>
+<br>- Visit http://cossacksworld.ucoz.co.uk/ -
+<br><br>All copyrights to the various visuals belong to
+<br>GSC Game World.
+</div>
+
+</div>
+
+<!-- overlayed element -->
+<div class="apple_overlay" id="overlay">
+  <!-- the external content is loaded inside this tag -->
+  <div class="contentWrap" id="contentWrap"></div>
+</div>
+
+<!-- make all links with the 'rel' attribute open overlays -->
+<script>
+$(function() {
+
+    // if the function argument is given to overlay,
+    // it is assumed to be the onBeforeLoad event listener
+    $("a[rel]").overlay({
+
+        mask: 'transparent',
+        effect: 'apple',
+
+        onBeforeLoad: function() {
+
+            // grab wrapper element inside content
+            var wrap = this.getOverlay().find(".contentWrap");
+
+            // load the page specified in the trigger
+            wrap.load(this.getTrigger().attr("href"));
+            
+            // Reset scroll each time a new overlay is opened and callback focus (by Chris Coyier)
+           $("div.contentWrap").animate({ scrollTop: 0 }, 1000, function() {
+           var $target = $("#contentWrap");
+           $target.focus();
+       if ($target.is(":focus")) { return false;} 
+       else {
+            $target.attr('tabindex','-1');
+            $target.focus(); };
+            });
+        }
+    });
+});
+</script>
+
+<!-- 
+* Save div drag position
+* Author: jakecigar
+* https://forum.jquery.com/topic/save-position-of-draggable-item#14737000006224309
+-->
+<script>
+var positions2 = JSON.parse(localStorage.positions2 || "{}");
+$(function () {
+    var d2 = $("[id=draggable2]").attr("id", function (i) {
+        return "draggable2_" + i
+    })
+    $.each(positions2, function (id, pos) {
+        $("#" + id).css(pos)
+    })
+
+    d2.draggable({
+        containment: "#containment-wrapper",
+        scroll: false,
+        stop: function (event, ui) {
+            positions2[this.id] = ui.position
+            localStorage.positions2 = JSON.stringify(positions2)
+        }
+    });
+});
+</script>
+
+<!-- Clear only this page div pos when Reset -->
+<script>
+function ClearPos2() {
+localStorage.removeItem('positions2');
+}
+</script>
+
+</body>
+</html>

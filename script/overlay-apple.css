@@ -1,0 +1,31 @@
+
+/* the overlayed element */
+.apple_overlay {
+
+    /* initially overlay is hidden */
+    display:none;
+
+    /* growing background image */
+    background-image:url("../images/t_white.png");
+
+    /*
+      width after the growing animation finishes
+      height is automatically calculated
+      */
+    width:429px;
+
+    /* some padding to layout nested elements nicely  */
+    padding:27px;
+
+    /* a little styling */
+    font-size:12px;
+}
+
+/* default close button positioned on upper right corner */
+.apple_overlay .close {
+    background-image:url("../images/t_close.png");
+    position:absolute; right:1px; top:1px;
+    cursor:pointer;
+    height:26px;
+    width:26px;
+}
